@@ -1,0 +1,23 @@
+.wrapper {
+    border-radius: 36px;
+    display: flex;
+    align-items: center;
+    background-color: var(--back-color-grey);
+    padding: 10px 10px 10px 20px;
+    .input {
+        font-size: 12px;
+        border-radius: 36px;
+        border: none;
+        height: 100%;
+        background-color: inherit;
+        outline: none;
+    }
+    button {
+        width: 39px;
+        height: 39px;
+    }
+    img {
+        width: 14px;
+        height: 14px;
+    }
+}

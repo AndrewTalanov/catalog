@@ -1,0 +1,12 @@
+.button {
+    background-color: var(--back-color-orange);
+    cursor: pointer;
+    border: none;
+    color: var(--font-color-white);
+    font-weight: 700;
+    transition: .4s;
+    border-radius: 80px;
+    &:active {
+        transform: scale(.9);
+    }
+}

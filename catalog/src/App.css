@@ -1,0 +1,9 @@
+:root {
+    --back-color-orange: #FFC85E;
+    --back-color-grey: #EDEDED;
+    --font-color-white: #fff;
+}
+
+a, h1, h2, h3, p {
+    margin: 0;
+}
