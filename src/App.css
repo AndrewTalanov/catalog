@@ -1,9 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 :root {
     --back-color-orange: #FFC85E;
     --back-color-grey: #EDEDED;
+
     --font-color-white: #fff;
+    --font-color-grey--light: #3F4E65;
+    --font-color-black--light: #111111;
+    --font-color-blue: rgb(46, 46, 245);
+
+    --font-family: 'Inter', sans-serif;
 }
 
-a, h1, h2, h3, p {
+a, h1, h2, h3, p, button, input, ul {
     margin: 0;
+    font-family: var(--font-family);
+}
+ul {
+    padding: 0;
+}
+
+.wrapper {
+    width: 1366px;
+    margin: 0 auto;
 }

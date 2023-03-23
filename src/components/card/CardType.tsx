@@ -1,11 +1,11 @@
 export type CardType = {
     id: number,
-    image_url: string,
+    imageUrl: string,
     name: string,
-    size_type: string,
+    sizeType: string,
     size: string,
     barcode: string,
     manufacturer: string,
     brand: string,
-    price: number,
+    price: string,
 }

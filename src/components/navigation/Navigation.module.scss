@@ -1,0 +1,52 @@
+.navigation {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    .address {
+        font-style: normal;
+        display: flex;
+        gap: 20px;
+        &-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            .info {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                p:first-of-type, a {
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: var(--font-color-black--light);
+                }
+                p:last-of-type {
+                    font-size: 12px;
+                    font-weight: 300;
+                    color: var(--font-color-grey--light);
+                }
+            }
+        }
+    }
+    nav {
+        ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            gap: 30px;
+            li {
+                a {
+                    text-decoration: none;
+                    color: var(--font-color-grey--light);
+                    font-size: 14px;
+                    transition: .4s;
+                    &:hover {
+                        color: var(--font-color-blue);
+                    }
+                }
+            }
+        }
+    }
+
+}

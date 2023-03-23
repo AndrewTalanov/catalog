@@ -6,6 +6,11 @@
     font-weight: 700;
     transition: .4s;
     border-radius: 80px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
     &:active {
         transform: scale(.9);
     }

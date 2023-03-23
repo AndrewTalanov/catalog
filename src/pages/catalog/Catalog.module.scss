@@ -1,0 +1,23 @@
+.hr {
+    margin: 0;
+    border: none;
+    height: 1px;
+    background-color: rgba( #3F4E65, .2);
+}
+
+.main {
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+            font-weight: 500;
+            font-size: 40px;
+            text-transform: uppercase;
+            color: var(--font-color-black--light);
+        }
+        // .param {
+    
+        // }
+    }
+}

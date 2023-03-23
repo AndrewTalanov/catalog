@@ -2,14 +2,17 @@ import React from 'react';
 import styles from './Button.module.scss';
 import { ButtonType } from './ButtonType';
 
-const Button: React.FC<ButtonType> = ({ children, padding }) => {
+const Button: React.FC<ButtonType> = ({ children, padding, fontSize, letterSpacing, gap }) => {
 
-    let paddingStr: string = padding != undefined ? padding.t + 'px ' + padding.r + 'px ' + padding.b + 'px ' + padding.l + 'px' : '';
+    const paddingStr: string = padding ? padding.t + 'px ' + padding.r + 'px ' + padding.b + 'px ' + padding.l + 'px' : '';
     
     return (
         <button 
             style={{ 
                 padding: paddingStr,
+                fontSize: fontSize, 
+                letterSpacing: letterSpacing,
+                gap: gap,
             }}
             className={styles.button}
         >

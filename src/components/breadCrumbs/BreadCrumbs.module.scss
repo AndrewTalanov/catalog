@@ -1,0 +1,14 @@
+.breadcrumbs {
+    padding: 27px 0 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    a {
+        text-decoration: none;
+        color: var(--font-color-grey--light);
+    }
+    p {
+        color: var(--font-color-grey--light);
+        opacity: .5;
+    }
+}
