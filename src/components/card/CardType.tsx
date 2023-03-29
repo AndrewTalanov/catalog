@@ -7,5 +7,6 @@ export type CardType = {
     barcode: string,
     manufacturer: string,
     brand: string,
-    price: string,
+    typeCare: string[],
+    price: number,
 }

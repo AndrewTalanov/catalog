@@ -1,0 +1,25 @@
+.item {
+    box-shadow: 0 0 70px -11px rgba(43, 28, 1, 0.04);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s;
+    &:active {
+        transform: scale(.9);
+    }
+    p {
+        padding: 18px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: var(--font-color-grey--light);
+        user-select: none;
+        transition: .4s;
+    }
+}
+.active {
+    background-color: var(--back-color-orange);
+    p {
+        color: var(--font-color-white)
+    };
+}

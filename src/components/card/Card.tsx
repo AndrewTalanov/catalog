@@ -8,11 +8,15 @@ import styles from './Card.module.scss';
 
 import iconVolume from '../../assets/img/volume.svg';
 import iconWeight from '../../assets/img/weight.svg';
+import iconQuantity from '../../assets/img/quantity.svg';
 import iconBasket from '../../assets/img/basket.svg';
+import iconNoImage from '../../assets/img/noimage.svg';
+import { useRef, useEffect } from 'react';
 
 const SIZETYPES = {
     WEIGHT: 'вес',
-    VOLUME: 'объем'
+    VOLUME: 'объем',
+    QUANTITY: 'количество'
 }
 
 const defineIcon = (sizeType: string): string => {
@@ -21,6 +25,8 @@ const defineIcon = (sizeType: string): string => {
             return iconWeight;
         case SIZETYPES.VOLUME:
             return iconVolume;
+        case SIZETYPES.QUANTITY:
+            return iconQuantity;
         default:
             return '';
     }
@@ -35,13 +41,26 @@ const Card: React.FC<CardType> = ({
     barcode,
     manufacturer,
     brand,
+    typeCare,
     price
 }) => {
+
+    const previewImg = useRef<HTMLImageElement>(null);
+
+    useEffect(() => {
+        if (previewImg.current) {
+            previewImg.current.onerror = function() {
+                previewImg.current?.setAttribute('src', iconNoImage);
+            } 
+        } 
+    })
 
     return (
         <div className={styles.card} data-id={id}>
 
-            <img src={imageUrl} alt="Превью товара" />
+            <div className={styles.img}>
+                <img ref={previewImg} src={imageUrl} alt="Превью товара" />
+            </div>
 
             <div className={styles.size}>
                 <img src={defineIcon(sizeType)} alt="Иконка тип размера" />

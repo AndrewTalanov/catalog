@@ -2,7 +2,7 @@
     "products": [
         {
             "id": 1,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-g/c1200/6004495469.jpg",
+            "image_url": "https://russia.gaxlcxhdjpshhp84c.jpg",
             "name": "Средство для стирки Ariel",
             "size_type": "вес",
             "size": "3 кг",
@@ -10,11 +10,16 @@
             "manufacturer": "Procter & Gamble",
             "brand": "Ariel",
             "description": "Средство для стирки с уникальной формулой, которая удаляет даже самые сложные пятна и сохраняет яркость цветов.",
-            "price": 539.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за руками",
+                "Уход за ногами"
+            ],
+            "price": 539
         },
         {
             "id": 2,
-            "image_url": "https://cdn1.ozone.ru/multimedia/c1200/1023038286.jpg",
+            "image_url": "https://portal.alidi.ru/image/63064238c4b4ae5a334daf27",
             "name": "Средство для мытья посуды Fairy",
             "size_type": "объем",
             "size": "1 л",
@@ -22,11 +27,18 @@
             "manufacturer": "Procter & Gamble",
             "brand": "Fairy",
             "description": "Средство для мытья посуды с уникальной формулой, которая быстро удаляет жир и налет, оставляя посуду чистой и свежей.",
-            "price": 129.0
+            "typeCare": [
+                "Средства для бритья",
+                "Подарочные наборы",
+                "Гигиеническая продукция",
+                "Гигиена полости рта",
+                "Бумажная продукция"
+            ],
+            "price": 129
         },
         {
             "id": 3,
-            "image_url": "https://cdn1.ozone.ru/multimedia/c1200/1024369787.jpg",
+            "image_url": "data:image/jpeg;base64,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",
             "name": "Кондиционер для волос Pantene",
             "size_type": "объем",
             "size": "360 мл",
@@ -34,11 +46,18 @@
             "manufacturer": "Procter & Gamble",
             "brand": "Pantene",
             "description": "Кондиционер для волос, который увлажняет и питает волосы, делая их мягкими и блестящими.",
-            "price": 239.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за руками",
+                "Уход за лицом",
+                "Гигиена полости рта",
+                "Бумажная продукция"
+            ],
+            "price": 239
         },
         {
             "id": 4,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-y/wc1200/6065414174.jpg",
+            "image_url": "https://superpuper.ru/images/lots/2c/d4/5d1f3c625a3f2bb0d53830e63db2.jpg",
             "name": "Гель для душа Nivea",
             "size_type": "объем",
             "size": "750 мл",
@@ -46,11 +65,21 @@
             "manufacturer": "Beiersdorf AG",
             "brand": "Nivea",
             "description": "Гель для душа с мягкой формулой, которая бережно очищает кожу, оставляя ее мягкой и увлажненной.",
-            "price": 279.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за руками",
+                "Средства для загара",
+                "Средства для бритья",
+                "Подарочные наборы",
+                "Гигиеническая продукция",
+                "Гигиена полости рта",
+                "Бумажная продукция"
+            ],
+            "price": 279
         },
         {
             "id": 5,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-6/wc1200/6024146505.jpg",
+            "image_url": "https://megumi.ru/upload/resize_cache/iblock/1ce/250_250_1754aaa0402f984314ae4353d22bad752/1ce6360da395a863bbbc541fce474df2.jpg",
             "name": "Туалетная бумага Lambi",
             "size_type": "количество",
             "size": "8 рулонов",
@@ -58,11 +87,20 @@
             "manufacturer": "SCA Hygiene Products",
             "brand": "Lambi",
             "description": "Мягкая и прочная туалетная бумага с высоким уровнем абсорбции.",
-            "price": 229.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за руками",
+                "Уход за лицом",
+                "Уход за волосами",
+                "Средства для загара",
+                "Средства для бритья",
+                "Бумажная продукция"
+            ],
+            "price": 229
         },
         {
             "id": 6,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-w/wc1200/6042874301.jpg",
+            "image_url": "https://apteka245.ru/img/drugs/nnt78408.jpg",
             "name": "Жидкое мыло Dove",
             "size_type": "объем",
             "size": "250 мл",
@@ -70,11 +108,15 @@
             "manufacturer": "Unilever",
             "brand": "Dove",
             "description": "Жидкое мыло с уникальной формулой, которая бережно очищает кожу, оставляя ее мягкой и увлажненной.",
-            "price": 99.0
+            "typeCare": [
+                "Гигиена полости рта",
+                "Бумажная продукция"
+            ],
+            "price": 99
         },
         {
             "id": 7,
-            "image_url": "https://cdn1.ozone.ru/multimedia/c1200/1038547935.jpg",
+            "image_url": "https://static.detmir.st/media_out/771/808/4808771/450/0.jpg?1660795616771",
             "name": "Моющее средство Domestos",
             "size_type": "объем",
             "size": "1 л",
@@ -82,11 +124,14 @@
             "manufacturer": "Unilever",
             "brand": "Domestos",
             "description": "Моющее средство с уникальной формулой, которая эффективно уничтожает бактерии и грибки, оставляя поверхности чистыми и свежими.",
-            "price": 99.0
+            "typeCare": [
+                "Уход за телом"
+            ],
+            "price": 99
         },
         {
             "id": 8,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-6/wc1200/6023628761.jpg",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2HyzvyNUO_q5LICNvyIOHw0B00SsQdHb0Vg&usqp=CAU",
             "name": "Салфетки бумажные Zewa",
             "size_type": "количество",
             "size": "100 шт",
@@ -94,11 +139,15 @@
             "manufacturer": "Sofidel S.p.A.",
             "brand": "Zewa",
             "description": "Бумажные салфетки с улучшенной мягкостью и прочностью.",
-            "price": 119.0
+            "typeCare": [
+                "Гигиена полости рта",
+                "Бумажная продукция"
+            ],
+            "price": 121
         },
         {
             "id": 9,
-            "image_url": "https://cdn1.ozone.ru/multimedia/c1200/1021197018.jpg",
+            "image_url": "https://main-cdn.sbermegamarket.ru/hlr-system/-15/368/616/113/241/156/100002123437b0.jpg",
             "name": "Шампунь Head & Shoulders",
             "size_type": "объем",
             "size": "400 мл",
@@ -106,11 +155,16 @@
             "manufacturer": "Procter & Gamble",
             "brand": "Head & Shoulders",
             "description": "Шампунь, специально разработанный для борьбы с перхотью и зудом, обогащенный природными экстрактами.",
-            "price": 249.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за руками",
+                "Бумажная продукция"
+            ],
+            "price": 224
         },
         {
             "id": 10,
-            "image_url": "https://cdn1.ozone.ru/multimedia/c1200/1030317989.jpg",
+            "image_url": "https://apteka245.ru/img/drugs/nnt70320.jpg",
             "name": "Гель для стирки Ariel",
             "size_type": "объем",
             "size": "1 л",
@@ -118,11 +172,19 @@
             "manufacturer": "Procter & Gamble",
             "brand": "Ariel",
             "description": "Гель для стирки с формулой, которая обеспечивает глубокую чистку и защиту тканей.",
-            "price": 329.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за лицом",
+                "Уход за волосами",
+                "Средства для загара",
+                "Средства для бритья",
+                "Бумажная продукция"
+            ],
+            "price": 329
         },
         {
             "id": 11,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-8/wc1200/6022843919.jpg",
+            "image_url": "https://prazdnichniy40.ru/system/App/Models/Product/176/cover/main/list/1-00001710.jpg",
             "name": "Мыло жидкое Palmolive",
             "size_type": "объем",
             "size": "500 мл",
@@ -130,11 +192,18 @@
             "manufacturer": "Colgate-Palmolive Company",
             "brand": "Palmolive",
             "description": "Мыло жидкое с натуральным экстрактом масла оливы, которое бережно очищает кожу, оставляя ее мягкой и увлажненной.",
-            "price": 189.0
+            "typeCare": [
+                "Уход за телом",
+                "Средства для загара",
+                "Гигиеническая продукция",
+                "Гигиена полости рта",
+                "Бумажная продукция"
+            ],
+            "price": 189
         },
         {
             "id": 12,
-            "image_url": "https://cdn1.ozone.ru/multimedia/c1200/1028796435.jpg",
+            "image_url": "https://cdn.100sp.ru/cache_pictures/373743951/thumb300",
             "name": "Освежитель воздуха Glade",
             "size_type": "объем",
             "size": "300 мл",
@@ -142,11 +211,19 @@
             "manufacturer": "SC Johnson",
             "brand": "Glade",
             "description": "Освежитель воздуха с натуральными эфирными маслами, который создает приятный аромат в любом помещении.",
-            "price": 119.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за лицом",
+                "Уход за волосами",
+                "Средства для загара",
+                "Средства для бритья",
+                "Подарочные наборы"
+            ],
+            "price": 119
         },
         {
             "id": 13,
-            "image_url": "https://cdn1.ozone.ru/multimedia/c1200/1035769602.jpg",
+            "image_url": "https://static.insales-cdn.com/images/products/1/4975/517985135/medium_1451017_1.jpg",
             "name": "Кондиционер для белья Lenor",
             "size_type": "объем",
             "size": "2 л",
@@ -154,11 +231,20 @@
             "manufacturer": "Procter & Gamble",
             "brand": "Lenor",
             "description": "Кондиционер для белья с нежным ароматом, который обеспечивает мягкость и свежесть вашего белья.",
-            "price": 449.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за руками",
+                "Уход за лицом",
+                "Уход за волосами",
+                "Средства для бритья",
+                "Подарочные наборы",
+                "Бумажная продукция"
+            ],
+            "price": 449
         },
         {
             "id": 14,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-4/wc1200/6026971454.jpg",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTva1-uXqudeFEOuv9F0Lg0B5OnFpNi2fbhrg&usqp=CAU",
             "name": "Мыло банный лист Natura Siberica",
             "size_type": "вес",
             "size": "500 г",
@@ -166,11 +252,19 @@
             "manufacturer": "OJSC Natura Siberica",
             "brand": "Natura Siberica",
             "description": "Мыло для тела на основе листьев сибирской бани, которое бережно очищает и питает кожу.",
-            "price": 189.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за волосами",
+                "Средства для загара",
+                "Средства для бритья",
+                "Подарочные наборы",
+                "Бумажная продукция"
+            ],
+            "price": 189
         },
         {
             "id": 15,
-            "image_url": "https://cdn1.ozone.ru/multimedia/c1200/1034913579.jpg",
+            "image_url": "https://252919.selcdn.ru/shoplot/37030917.jpg",
             "name": "Крем для рук Neutrogena",
             "size_type": "объем",
             "size": "75 мл",
@@ -178,11 +272,17 @@
             "manufacturer": "Johnson & Johnson",
             "brand": "Neutrogena",
             "description": "Крем для рук с глицерином, который интенсивно увлажняет и защищает кожу рук от сухости и шелушения.",
-            "price": 249.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за руками",
+                "Гигиена полости рта",
+                "Бумажная продукция"
+            ],
+            "price": 249
         },
         {
             "id": 16,
-            "image_url": "https://cdn1.ozone.ru/multimedia/c1200/1026887868.jpg",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwkW7_1KOM1SusvHE6-ydCaNKjEE4mmD2L6g&usqp=CAU",
             "name": "Моющее средство Cif",
             "size_type": "объем",
             "size": "500 мл",
@@ -190,11 +290,15 @@
             "manufacturer": "Unilever",
             "brand": "Cif",
             "description": "Моющее средство для кухни и ванной комнаты, которое эффективно удаляет жир, грязь и налет, не оставляя разводов.",
-            "price": 169.0
+            "typeCare": [
+                "Уход за телом",
+                "Бумажная продукция"
+            ],
+            "price": 169
         },
         {
             "id": 17,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-c/wc1200/6019796177.jpg",
+            "image_url": "https://www.perfectoria.ru/sites/default/files/field/image/gamardpudra.jpg",
             "name": "Шампунь Pantene Pro-V",
             "size_type": "объем",
             "size": "400 мл",
@@ -202,11 +306,21 @@
             "manufacturer": "Procter & Gamble",
             "brand": "Pantene",
             "description": "Шампунь для поврежденных волос, который восстанавливает их структуру, придавая им силу и блеск.",
-            "price": 229.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за руками",
+                "Уход за лицом",
+                "Средства для бритья",
+                "Подарочные наборы",
+                "Гигиеническая продукция",
+                "Гигиена полости рта",
+                "Бумажная продукция"
+            ],
+            "price": 229
         },
         {
             "id": 18,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-w/wc1200/6019135214.jpg",
+            "image_url": "https://naslednikv.ru/upload/resize_cache/webp/iblock/ef2/yv7c1nhowlyt9gyoal8k6xli0adzsrfi/325_390_1/f55da408-c438-11e2-89a5-485b3912fa51_ac8e00d9-2d0c-11e8-81ee-086266a123f3.webp",
             "name": "Зубная паста Colgate Max White",
             "size_type": "вес",
             "size": "100 мл",
@@ -214,11 +328,17 @@
             "manufacturer": "Colgate-Palmolive Company",
             "brand": "Colgate",
             "description": "Зубная паста с максимальным отбеливающим эффектом, которая бережно очищает зубы и устраняет зубной налет.",
-            "price": 129.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за руками",
+                "Уход за лицом",
+                "Уход за волосами"
+            ],
+            "price": 129
         },
         {
             "id": 19,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-w/wc1200/6018887463.jpg",
+            "image_url": "https://252919.selcdn.ru/shoplot/37030649.jpg",
             "name": "Салфетки влажные Pampers Aqua Pure",
             "size_type": "количество",
             "size": "48 шт",
@@ -226,11 +346,19 @@
             "manufacturer": "Procter & Gamble",
             "brand": "Pampers",
             "description": "Влажные салфетки для ухода за чувствительной кожей младенцев, которые не содержат парфюмов и алкоголя.",
-            "price": 299.0
+            "typeCare": [
+                "Уход за телом",
+                "Уход за руками",
+                "Подарочные наборы",
+                "Гигиеническая продукция",
+                "Гигиена полости рта",
+                "Бумажная продукция"
+            ],
+            "price": 299
         },
         {
             "id": 20,
-            "image_url": "https://cdn1.ozone.ru/s3/multimedia-y/wc1200/6019456888.jpg",
+            "image_url": "https://aquadom16.ru/a/aquadom/files/userfiles/images/site1/preview_30053.jpeg",
             "name": "Дезодорант-антиперспирант Rexona",
             "size_type": "объем",
             "size": "50 мл",
@@ -238,7 +366,14 @@
             "manufacturer": "Unilever",
             "brand": "Rexona",
             "description": "Дезодорант-антиперспирант с защитой от пота и запаха на 48 часов, который не оставляет белых следов на одежде.",
-            "price": 139.0
+            "typeCare": [
+                "Уход за телом",
+                "Подарочные наборы",
+                "Гигиеническая продукция",
+                "Гигиена полости рта",
+                "Бумажная продукция"
+            ],
+            "price": 139
         }
     ]
 }

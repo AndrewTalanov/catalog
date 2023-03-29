@@ -3,6 +3,7 @@ import Input from "../../components/input/Input";
 import Card from "../../components/card/Card";
 
 import iconSearch from '../../assets/img/search.svg';
+import Select from "../../components/select/Select";
 
 const Uikit = () => {
     return (
@@ -48,6 +49,14 @@ const Uikit = () => {
                     price={'53,95'}
                 />
             </div>
+
+            <Select
+                options={[
+                    {label: 'во возрастанию', value: 'up'},
+                    {label: 'по убыванию', value: 'down'},
+                    {label: 'и еще куда нибудь', value: 'right'},
+                ]}
+            />
         </div>
     )
 }

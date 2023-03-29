@@ -16,8 +16,22 @@
             text-transform: uppercase;
             color: var(--font-color-black--light);
         }
-        // .param {
-    
-        // }
+    }
+    .chapter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 11px;
+    }
+    .content {
+        margin-top: 30px;
+        display: flex;
+        gap: 100px;
+        align-items: flex-start;
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
     }
 }
