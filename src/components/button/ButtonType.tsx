@@ -8,5 +8,6 @@ export type ButtonType = {
         b: number,
         l: number,
     },
-    gap?: number
+    gap?: number,
+    type?: "button" | "submit" | "reset" | undefined
 }

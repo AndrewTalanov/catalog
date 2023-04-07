@@ -1,0 +1,36 @@
+.filter-price {
+    .filter-title {
+        font-weight: 300;
+        font-size: 14px;
+        color: var(--font-color-grey--light);
+        margin-bottom: 15px;
+        span {
+            font-weight: 500;
+            color: var(--font-color-black--light);
+        }
+    }
+    .numbers {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: var(--font-color-grey--light);
+        div input {
+            font-weight: 300;
+            font-size: 12px;
+            color: var(--font-color-grey--light);
+            background-color: rgba(#FFC85E, .3);
+            padding: 4px;
+            box-sizing: border-box;
+            text-align: center;
+            border-radius: 15px;
+            border: none;
+            width: 100px;
+            outline: none;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+    }
+}
