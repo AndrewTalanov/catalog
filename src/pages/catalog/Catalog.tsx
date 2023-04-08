@@ -25,52 +25,6 @@ type cardType = {
     price: number;
 }
 
-const filterCardChapter = (
-    chapter: never[],
-    setDataCard: React.Dispatch<React.SetStateAction<cardType[]>>,
-    setMinPriceCard: React.Dispatch<React.SetStateAction<number>>,
-    setMaxPriceCard: React.Dispatch<React.SetStateAction<number>>
-) => {
-
-    if (chapter.length > 0) {
-
-        let data: cardType[] = [];
-        Data.products.filter(product => {
-            product.typeCare.forEach(typeCare => {
-                chapter.forEach(el => {
-                    if (el == typeCare) {
-                        if (!data.includes(product)) {
-                            data.push(product);
-                        }
-                    }
-                });
-            })
-        });
-        setDataCard(data);
-        setMinPriceCard(data.sort((a, b) => a.price - b.price)[0].price);
-        setMaxPriceCard(data.sort((a, b) => b.price - a.price)[0].price);
-    } else {
-        setDataCard(Data.products);
-        setMinPriceCard(Data.products.sort((a, b) => a.price - b.price)[0].price);
-        setMaxPriceCard(Data.products.sort((a, b) => b.price - a.price)[0].price);
-    }
-}
-
-const filterCardPrice = (
-    currentMinPrice: number,
-    currentMaxPrice: number,
-    setDataCard: React.Dispatch<React.SetStateAction<cardType[]>>,
-    dataCard: cardType[]
-) => {
-    let data: cardType[] = [];
-    dataCard.map(product => {
-        if (product.price >= currentMinPrice && product.price <= currentMaxPrice) {
-            data.push(product);
-        }
-    });
-    setDataCard(data);
-}
-
 const Catalog = () => {
 
     const [chapter, setChapter] = useState([]);
@@ -83,18 +37,42 @@ const Catalog = () => {
     const [currentMinPrice, setCurrentMinPrice] = useState(minPriceCard);
     const [currentMaxPrice, setCurrentMaxPrice] = useState(maxPriceCard);
 
-    useEffect(() => {
-        setDataCard(Data.products);
-    }, [chapter, currentMaxPrice, currentMinPrice]);
+    // Сортировка по категориям
+    const data: cardType[] = [...Data.products];
+
+    if (chapter.length > 0) {
+    
+        data.length = 0;
+
+        Data.products.filter(product => {
+            product.typeCare.forEach(typeCare => {
+                chapter.forEach(el => {
+                    if (el == typeCare) {
+                        if (!data.includes(product)) {
+                            data.push(product);
+                        }
+                    }
+                });
+            })
+        });
+    } 
+
+    // Сортировка по цене
+    const sortedPrice: cardType[] = [];
+
+    data.filter((product) => {
+        if (product.price >= currentMinPrice && product.price <= currentMaxPrice) {
+            sortedPrice.push(product);
+        }
+    });
 
     useEffect(() => {
-        filterCardChapter(chapter, setDataCard, setMinPriceCard, setMaxPriceCard);
-    }, [chapter]);
+        setDataCard(sortedPrice);
+        setMinPriceCard(sortedPrice.sort((a, b) => a.price - b.price)[0].price);
+        setMaxPriceCard(sortedPrice.sort((a, b) => b.price - a.price)[0].price);
+    }, [currentMinPrice, chapter, currentMaxPrice]);
 
-    useEffect(() => {
-        filterCardPrice(currentMinPrice, currentMaxPrice, setDataCard, dataCard);
-    }, [currentMinPrice, currentMaxPrice]);
-
+    // сортировка товаров
     if (select == optionsList[0].label) {
         dataCard.sort((a, b) => {
             if (a.name < b.name) { return -1; }

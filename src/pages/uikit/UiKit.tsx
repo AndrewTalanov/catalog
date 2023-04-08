@@ -24,39 +24,9 @@ const Uikit = () => {
                 }}
             />
 
-            <div style={{ display: 'flex', gap: '20px' }}>
-                <Card
-                    id={1}
-                    imageUrl="https://i.pinimg.com/originals/a9/6b/08/a96b086b33c39d6fcaa943d5a20b458b.jpg"
-                    name="ARIEL Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник"
-                    sizeType="вес"
-                    size="3 кг"
-                    barcode="8001090746626"
-                    manufacturer="Procter & Gamble"
-                    brand="Ariel"
-                    price={'53,95'}
-                />
+            
 
-                <Card
-                    id={2}
-                    imageUrl="https://i.pinimg.com/originals/a9/6b/08/a96b086b33c39d6fcaa943d5a20b458b.jpg"
-                    name="ARIEL Автмат Гель СМС жидкое fsdfds fds"
-                    sizeType="вес"
-                    size="3 кг"
-                    barcode="8001090746626"
-                    manufacturer="Procter & Gamble"
-                    brand="Ariel"
-                    price={'53,95'}
-                />
-            </div>
-
-            <Select
-                options={[
-                    {label: 'во возрастанию', value: 'up'},
-                    {label: 'по убыванию', value: 'down'},
-                    {label: 'и еще куда нибудь', value: 'right'},
-                ]}
-            />
+           
         </div>
     )
 }
