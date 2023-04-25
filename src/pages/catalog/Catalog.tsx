@@ -27,6 +27,8 @@ type cardType = {
 
 const Catalog = () => {
 
+    const [cart, setCart] = useState<number[]>([]);
+
     const [chapter, setChapter] = useState([]);
     const [dataCard, setDataCard] = useState<cardType[]>(Data.products);
     const [select, setSelect] = useState(optionsList[0].label);
@@ -104,7 +106,10 @@ const Catalog = () => {
             <hr className={styles.hr} />
 
             <div className="wrapper">
-                <Header />
+                <Header 
+                    cart={cart}
+                    setCart={setCart}
+                />
             </div>
 
             <hr className={styles.hr} />
@@ -146,6 +151,7 @@ const Catalog = () => {
                                 setCurrentMinPrice={setCurrentMinPrice}
                                 setCurrentMaxPrice={setCurrentMaxPrice}
                             />
+
                         </div>
 
                         <div className={styles["content-list"]}>
@@ -162,6 +168,8 @@ const Catalog = () => {
                                     brand={el.brand}
                                     typeCare={el.typeCare}
                                     price={el.price}
+                                    cart={cart}
+                                    setCart={setCart}
                                 />
                             })}
                         </div>

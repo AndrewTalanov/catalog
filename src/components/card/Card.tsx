@@ -42,7 +42,9 @@ const Card: React.FC<CardType> = ({
     manufacturer,
     brand,
     typeCare,
-    price
+    price,
+    cart,
+    setCart
 }) => {
 
     const previewImg = useRef<HTMLImageElement>(null);
@@ -54,6 +56,11 @@ const Card: React.FC<CardType> = ({
             } 
         } 
     })
+
+    const addCart = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        e.preventDefault();
+        setCart([...cart, id])
+    }
 
     return (
         <div className={styles.card} data-id={id}>
@@ -87,14 +94,16 @@ const Card: React.FC<CardType> = ({
 
                 <div className={styles.action}>
                     <p>{price} ₸</p>
-                    <Button
-                        padding={{ t: 13, r: 27, b: 13, l: 27 }}
-                        fontSize={10}
-                        letterSpacing={'0.15em'}
-                    >
-                        В КОРЗИНУ
-                        <img src={iconBasket} alt="Иконка корзины"/>
-                    </Button>
+                    <div onClick={(e) => addCart(e)}>
+                        <Button
+                            padding={{ t: 13, r: 27, b: 13, l: 27 }}
+                            fontSize={10}
+                            letterSpacing={'0.15em'}
+                        >
+                            В КОРЗИНУ
+                            <img src={iconBasket} alt="Иконка корзины"/>
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

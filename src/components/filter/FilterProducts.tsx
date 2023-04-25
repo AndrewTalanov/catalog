@@ -3,6 +3,7 @@ import Button from '../button/Button';
 import iconDelete from '../../assets/img/delete.svg';
 import FilterPrice from '../filter-price/FilterPrice';
 import { FilterProductsType } from './FilterProductsType';
+import FilterCheckbox from '../filter-checkbox/FilterCheckbox';
 
 const FilterProducts: React.FC<FilterProductsType> = ({minPrice, maxPrice, setCurrentMinPrice, setCurrentMaxPrice}) => {
 
@@ -27,6 +28,10 @@ const FilterProducts: React.FC<FilterProductsType> = ({minPrice, maxPrice, setCu
             <FilterPrice
                 minPriceCard={minPrice}
                 maxPriceCard={maxPrice}
+            />
+
+            <FilterCheckbox
+                
             />
 
             <div className={styles["filter-accept"]}>

@@ -9,4 +9,9 @@ export type CardType = {
     brand: string,
     typeCare: string[],
     price: number,
+    cart: number[],
+    setCart: React.Dispatch<React.SetStateAction<number[]>>,
+    map?: any,
+    length?: any,
+    filter?: any
 }

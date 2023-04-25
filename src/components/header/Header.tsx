@@ -1,4 +1,6 @@
 import styles from './Header.module.scss';
+import { HeaderType } from './HeaderType';
+import Data from '../../Data.json';
 
 import iconLogo from '../../assets/img/logo.svg';
 import iconCub from '../../assets/img/cub.svg';
@@ -10,10 +12,46 @@ import iconPsevdochel from '../../assets/img/psevdochel.png';
 import Button from '../button/Button';
 import Input from '../input/Input';
 import Dashed from '../dashed/Dashed';
+import Account from '../account/Account';
+import { useState, useEffect, useRef } from 'react';
+import Cart from '../cart/Cart';
+import { CardType } from '../card/CardType';
 
-const Header = () => {
+const Header: React.FC<HeaderType> = ({ cart, setCart }) => {
+
+    const initialValue = [0];
+    const [arrayPrice, setArrayPrice] = useState<number[]>(initialValue);
+    const [products, setProducts] = useState<any>([]);
+    const [price, setPrice] = useState<number | undefined>(0);
+    const [openCart, setOpenCart] = useState(false);
+    const header: any = useRef();
+
+    useEffect(() => {
+        setArrayPrice(initialValue);
+        cart.forEach(id => {
+            Data.products.forEach(el => {
+                if (id == el.id) {
+                    setProducts([...products, el]);
+                    setArrayPrice([...arrayPrice, el.price]);
+                }
+            });
+        });
+    }, [cart]);
+
+    useEffect(() => {
+        setPrice(arrayPrice?.reduce((a, b) => a + b));
+    }, [arrayPrice]);
+
+    useEffect(() => {
+
+        const body = header?.current.closest('body');
+
+        openCart ? body.classList.add('body-hidden') : body.classList.remove('body-hidden')
+
+    }, [openCart]);
+
     return (
-        <header className={styles.header}>
+        <header ref={header} className={styles.header}>
             <a href="#"><img src={iconLogo} alt="Логотип компании" /></a>
 
             <div className={styles.search}>
@@ -39,7 +77,7 @@ const Header = () => {
                     }}
                 />
             </div>
-            
+
             <div className={styles.other}>
                 <div className={styles.feedback}>
                     <div className={styles.info}>
@@ -49,46 +87,48 @@ const Header = () => {
                     </div>
                     <img src={iconPsevdochel} alt="Сотрудник компании" />
                 </div>
-            
+
                 <Dashed
                     height={49}
                 />
-                <Button
-                    padding={{
-                        t: 21,
-                        r: 43,
-                        b: 21,
-                        l: 43
-                    }}
-                    gap={12}
-                    fontSize={14}
-                >
-                    Прайс-лист <img src={iconDowload} alt="Кубики" />
-                </Button>
+                <Account
+
+                />
                 <Dashed
                     height={49}
                 />
 
-                <a href='#' className={styles.basket}>
+                <div className={styles.basket} onClick={() => setOpenCart(!openCart)}>
 
                     <div className={styles.icon}>
                         <img src={iconBasket} alt="Корзина" />
                         <div className={styles.count}>
                             <div className={styles.back}></div>
-                            <p>3</p>
+                            <p>{cart.length}</p>
                         </div>
                     </div>
 
                     <div className={styles.info}>
                         <p>Корзина</p>
-                        <p>12 478 ₸</p>
+                        <p>
+                            {price} ₸</p>
                     </div>
-                </a>
+
+
+                </div>
+
+                {openCart ? <Cart
+                    setOpenCart={setOpenCart}
+                    products={products}
+                    cart={cart}
+                    setCart={setCart}
+                    setProducts={setProducts}
+                /> : ''}
             </div>
 
-            
 
-            
+
+
         </header>
     );
 }
