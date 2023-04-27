@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Table, Form, Button, Modal, InputGroup } from "react-bootstrap";
+import EditProduct from "./EditProduct";
 
 interface Product {
   id?: number;
   description: string;
-  images: string[];
+  images: string;
   price: number;
   name: string;
   categoryId: number;
@@ -14,15 +15,18 @@ const TOKEN = {
 };
 
 const Products: React.FC = () => {
+  const [messageText, setMessageText] = useState('');
   const [products, setProducts] = useState<Product[]>([]);
+  const [isEdit, setIsEdit] = useState(false);
 
   const [productData, setProductData] = useState<Product>({
     description: "",
-    images: [""],
+    images: "",
     price: 200,
     name: "",
     categoryId: 21,
   });
+
   useEffect(() => {
     fetch("http://localhost:8000/api/products", {
       headers: {
@@ -39,7 +43,7 @@ const Products: React.FC = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setProductData({ ...productData, [name]: value, images: [""] });
+    setProductData({ ...productData, [name]: value});
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -65,6 +69,7 @@ const Products: React.FC = () => {
         ...productData,
         categoryId: parseInt(productData.categoryId),
         price: parseFloat(productData.price),
+        images: productData.images.split(',')
       };
 
       const putResponse = await fetch(
@@ -83,7 +88,7 @@ const Products: React.FC = () => {
       console.log(putResponse);
 
       if (putResponse.ok) {
-        console.log("Продукт успешно создан и обновлен");
+        setMessageText("Продукт успешно создан и обновлен");
         // Обновляем список продуктов
         const response = await fetch("http://localhost:8000/api/products", {
           headers: {
@@ -123,6 +128,9 @@ const Products: React.FC = () => {
 
   return (
     <div>
+      { isEdit ? <EditProduct
+        product={productTest}
+      /> : null}
       <h1 className="mb-3">Товары</h1>
       <h2 className="mb-3">Список товаров</h2>
       <Table striped bordered hover>
@@ -188,17 +196,18 @@ const Products: React.FC = () => {
             onChange={handleInputChange}
           />
         </Form.Group>
-        {/* <Form.Group controlId="formImages">
+        
+        <Form.Group controlId="formImages">
           <Form.Label>Изображения</Form.Label>
           <Form.Control
             type="text"
             placeholder="Изображения товара"
             name="images"
-            value={productData.images.join(",")}
+            value={productData.images}
             className="mb-3"
-            onChange={() => handleInputChange}
+            onChange={handleInputChange}
           />
-        </Form.Group> */}
+        </Form.Group>
         <Form.Group controlId="formCategoryId">
           <Form.Label>Категория</Form.Label>
           <Form.Control
@@ -213,6 +222,7 @@ const Products: React.FC = () => {
         <Button variant="primary" type="submit">
           Создать
         </Button>
+        <h6 className="mt-3">{messageText}</h6>
       </Form>
     </div>
   );

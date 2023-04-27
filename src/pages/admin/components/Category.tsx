@@ -7,6 +7,7 @@ const Category = () => {
   const TOKEN = {
     KEY: sessionStorage.getItem('tokenAdmin')
   };
+  const [text, setText] = useState('');
   useEffect(() => {
     fetch("http://localhost:8000/api/categories", {
       headers: {
@@ -37,6 +38,7 @@ const Category = () => {
       .then((data) => {
         setCategories([...categories, data]);
         setNewCategory({ name: "" });
+        setText('Новая категория успешно добавлена!');
       })
       .catch((error) =>
         console.error("Ошибка при добавлении новой категории:", error)
@@ -102,6 +104,7 @@ const Category = () => {
         <Button className="mt-3" variant="primary" type="submit">
           Добавить
         </Button>
+        <h6 className="mt-3">{text}</h6>
       </Form>
     </div>
   );
