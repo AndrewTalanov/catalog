@@ -34,14 +34,12 @@ const defineIcon = (sizeType: string): string => {
 
 const Card: React.FC<CardType> = ({
     id,
-    imageUrl,
+    images,
     name,
-    sizeType,
-    size,
     barcode,
     manufacturer,
     brand,
-    typeCare,
+    categoryId,
     price,
     cart,
     setCart
@@ -66,12 +64,7 @@ const Card: React.FC<CardType> = ({
         <div className={styles.card} data-id={id}>
 
             <div className={styles.img}>
-                <img ref={previewImg} src={imageUrl} alt="Превью товара" />
-            </div>
-
-            <div className={styles.size}>
-                <img src={defineIcon(sizeType)} alt="Иконка тип размера" />
-                <p>{size}</p>
+                <img ref={previewImg} src={images[0]} alt="Превью товара" />
             </div>
 
             <h2 className={styles.title}>
@@ -82,13 +75,13 @@ const Card: React.FC<CardType> = ({
             <div className={styles.wrapper}>
                 <div className={styles.info}>
                     <div className={styles["info-item"]}>
-                        <p><span>Штрихкод: </span>{barcode}</p>
+                        <p><span>Штрихкод: </span>89584923483</p>
                     </div>
                     <div className={styles["info-item"]}>
-                        <p><span>Производитель: </span>{manufacturer}</p>
+                        <p><span>Производитель: </span>Russia</p>
                     </div>
                     <div className={styles["info-item"]}>
-                        <p><span>Бренд: </span>{brand}</p>
+                        <p><span>Бренд: </span>Nivea</p>
                     </div>
                 </div>
 

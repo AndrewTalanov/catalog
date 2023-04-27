@@ -5,62 +5,59 @@ import Select from '../../components/select/Select';
 import styles from './Catalog.module.scss';
 import ChapterItem from '../../components/chapterItem/ChapterItem';
 import FilterProducts from '../../components/filter/FilterProducts';
-import Data from '../../Data.json';
 import Card from '../../components/card/Card';
-import { chapterItemList } from './data/chapterItemList';
 import { optionsList } from './data/oprionsList';
 import { useState, useEffect } from 'react';
+import { CardType } from '../../components/card/CardType';
+import { URL } from '../../URL';
 
-type cardType = {
-    id: number;
-    image_url: string;
-    name: string;
-    size_type: string;
-    size: string;
-    barcode: string;
-    manufacturer: string;
-    brand: string;
-    description: string;
-    typeCare: string[];
-    price: number;
-}
+const Data: CardType[] = [];
+const chapterItemList: any[] = [];
+
+await fetch(URL.DOMEN + URL.PRODUCTS)
+    .then(response => response.json())
+    .then(data => Data.push(...data.product));
+
+await fetch(URL.DOMEN + URL.CATEGORY)
+    .then(response => response.json())
+    .then(data => chapterItemList.push(...data));
 
 const Catalog = () => {
 
     const [cart, setCart] = useState<number[]>([]);
 
     const [chapter, setChapter] = useState([]);
-    const [dataCard, setDataCard] = useState<cardType[]>(Data.products);
+    const [dataCard, setDataCard] = useState<CardType[]>(Data);
+
     const [select, setSelect] = useState(optionsList[0].label);
 
-    const [minPriceCard, setMinPriceCard] = useState(dataCard.sort((a, b) => a.price - b.price)[0].price);
-    const [maxPriceCard, setMaxPriceCard] = useState(dataCard.sort((a, b) => b.price - a.price)[0].price);
+    const [minPriceCard, setMinPriceCard] = useState(() => dataCard.length ? dataCard.sort((a, b) => a.price - b.price)[0].price : 0);
+    const [maxPriceCard, setMaxPriceCard] = useState(() => dataCard.length ? dataCard.sort((a, b) => b.price - a.price)[0].price : 0);
 
     const [currentMinPrice, setCurrentMinPrice] = useState(minPriceCard);
     const [currentMaxPrice, setCurrentMaxPrice] = useState(maxPriceCard);
 
     // Сортировка по категориям
-    const data: cardType[] = [...Data.products];
+    const data: CardType[] = [...Data];
 
     if (chapter.length > 0) {
-    
+
         data.length = 0;
 
-        Data.products.filter(product => {
-            product.typeCare.forEach(typeCare => {
-                chapter.forEach(el => {
-                    if (el == typeCare) {
-                        if (!data.includes(product)) {
-                            data.push(product);
-                        }
+        Data.filter(product => {
+
+            chapter.forEach(el => {
+                if (product.categoryId == el) {
+                    if (!data.includes(product)) {
+                        data.push(product);
                     }
-                });
-            })
+                }
+            });
         });
-    } 
+    }
 
     // Сортировка по цене
-    const sortedPrice: cardType[] = [];
+    const sortedPrice: CardType[] = [];
 
     data.filter((product) => {
         if (product.price >= currentMinPrice && product.price <= currentMaxPrice) {
@@ -70,8 +67,6 @@ const Catalog = () => {
 
     useEffect(() => {
         setDataCard(sortedPrice);
-        setMinPriceCard(sortedPrice.sort((a, b) => a.price - b.price)[0].price);
-        setMaxPriceCard(sortedPrice.sort((a, b) => b.price - a.price)[0].price);
     }, [currentMinPrice, chapter, currentMaxPrice]);
 
     // сортировка товаров
@@ -106,7 +101,8 @@ const Catalog = () => {
             <hr className={styles.hr} />
 
             <div className="wrapper">
-                <Header 
+                <Header
+                    Data={Data}
                     cart={cart}
                     setCart={setCart}
                 />
@@ -133,12 +129,12 @@ const Catalog = () => {
                     <div className={styles.chapter}>
                         {chapterItemList.map((el, i) => {
                             return <ChapterItem
-                                id={i}
+                                id={el.id}
                                 key={i}
                                 chapter={chapter}
                                 setChapter={setChapter}
                             >
-                                {el}
+                                {el.name}
                             </ChapterItem>
                         })}
                     </div>
@@ -159,14 +155,12 @@ const Catalog = () => {
                                 return <Card
                                     key={el.id}
                                     id={el.id}
-                                    imageUrl={el.image_url}
+                                    images={el.images}
                                     name={el.name}
-                                    sizeType={el.size_type}
-                                    size={el.size}
                                     barcode={el.barcode}
                                     manufacturer={el.manufacturer}
                                     brand={el.brand}
-                                    typeCare={el.typeCare}
+                                    categoryId={el.categoryId}
                                     price={el.price}
                                     cart={cart}
                                     setCart={setCart}

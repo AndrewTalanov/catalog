@@ -1,7 +1,6 @@
 import styles from './Header.module.scss';
 import { HeaderType } from './HeaderType';
-import Data from '../../Data.json';
-
+import { Link } from "react-router-dom";
 import iconLogo from '../../assets/img/logo.svg';
 import iconCub from '../../assets/img/cub.svg';
 import iconSearch from '../../assets/img/search.svg';
@@ -17,7 +16,28 @@ import { useState, useEffect, useRef } from 'react';
 import Cart from '../cart/Cart';
 import { CardType } from '../card/CardType';
 
-const Header: React.FC<HeaderType> = ({ cart, setCart }) => {
+const Header: React.FC<HeaderType> = ({ cart, setCart, Data }) => {
+
+    const [user, setUser] = useState({
+        user: {
+            email: '',
+        },
+        accessToken: ''
+    });
+
+    useEffect(() => {
+        if (user.accessToken) {
+            sessionStorage.setItem('token', user.accessToken);
+            sessionStorage.setItem('email', user.user.email);
+        }
+    }, [user]);
+
+    useEffect(() => {
+        if (user == null) {
+            user.user.email = sessionStorage.getItem('email');
+            user.accessToken = sessionStorage.getItem('token');
+        }
+    }, []);
 
     const initialValue = [0];
     const [arrayPrice, setArrayPrice] = useState<number[]>(initialValue);
@@ -29,7 +49,7 @@ const Header: React.FC<HeaderType> = ({ cart, setCart }) => {
     useEffect(() => {
         setArrayPrice(initialValue);
         cart.forEach(id => {
-            Data.products.forEach(el => {
+            Data.forEach(el => {
                 if (id == el.id) {
                     setProducts([...products, el]);
                     setArrayPrice([...arrayPrice, el.price]);
@@ -52,7 +72,9 @@ const Header: React.FC<HeaderType> = ({ cart, setCart }) => {
 
     return (
         <header ref={header} className={styles.header}>
-            <a href="#"><img src={iconLogo} alt="Логотип компании" /></a>
+            <Link to="/" className="nav-link">
+                <img src={iconLogo} alt="Логотип компании" />
+            </Link>
 
             <div className={styles.search}>
                 <Button
@@ -92,7 +114,8 @@ const Header: React.FC<HeaderType> = ({ cart, setCart }) => {
                     height={49}
                 />
                 <Account
-
+                    setUser={setUser}
+                    user={user}
                 />
                 <Dashed
                     height={49}
@@ -123,6 +146,7 @@ const Header: React.FC<HeaderType> = ({ cart, setCart }) => {
                     cart={cart}
                     setCart={setCart}
                     setProducts={setProducts}
+                    user={user}
                 /> : ''}
             </div>
 

@@ -12,13 +12,15 @@ const ChapterItem: React.FC<ChapterItemType> = ({ children, id, chapter, setChap
 
             const target = e.target as HTMLElement;
 
-            if (chapter.find(el => el == target.textContent)) {
+            const id: any = target.closest('div[data-id]')?.getAttribute('data-id');
+
+            if (chapter.find(el => el == id)) {
                 if (e.target.textContent) {
-                    const index = chapter.indexOf(e.target.textContent);
+                    const index = chapter.indexOf(id);
                     setChapter([...chapter.slice(0, index), ...chapter.slice(index + 1)])
                 }
             } else {
-                setChapter([...chapter, e.target.textContent]);
+                setChapter([...chapter, id]);
             }
         }
     }

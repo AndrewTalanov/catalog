@@ -5,5 +5,6 @@ export type CartType = {
     products: CardType,
     setProducts: React.Dispatch<any>,
     cart: number[],
-    setCart: React.Dispatch<React.SetStateAction<number[]>>
+    setCart: React.Dispatch<React.SetStateAction<number[]>>,
+    user: any
 }

@@ -4,18 +4,23 @@ import { AccountType } from './AccountType';
 import { useState, useEffect, useRef } from 'react';
 import avatar from '../../assets/img/avatar.png';
 
-const Account: React.FC<AccountType> = ({}) => {
+const Account: React.FC<AccountType> = ({setUser, user}) => {
 
     const [active, setActive] = useState(false);
+    const [userRegisterToken, setUserRegisterToken] = useState();
     const buttonRef: any = useRef();
 
     useEffect(() => {
-
         const body = buttonRef.current.closest('body');
-
         active ? body.classList.add('body-hidden') : body.classList.remove('body-hidden')
-
     }, [active]);
+
+    let email;
+    if (user.user.email) {
+        email = user.user.email;
+    } else if (sessionStorage.getItem('email')){
+        email = sessionStorage.getItem('email');
+    }
 
     return (
         <>
@@ -25,10 +30,15 @@ const Account: React.FC<AccountType> = ({}) => {
                 onClick={() => setActive(!active)}
             >
                 <img src={avatar} alt="аватарка" />
-                <p>Войти</p>
+                <p>{ email || 'Войти'}</p>
             </button>
             {
-                active ? <ModalLogin setActive={setActive} /> : ''
+                active ? <ModalLogin 
+                    setActive={setActive} 
+                    setUser={setUser} 
+                    userRegisterToken={userRegisterToken}
+                    setUserRegisterToken={setUserRegisterToken}
+                    /> : ''
             }
         </>
     );

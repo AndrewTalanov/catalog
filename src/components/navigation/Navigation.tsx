@@ -1,13 +1,15 @@
-import styles from './Navigation.module.scss';
+import styles from "./Navigation.module.scss";
+import { Link } from "react-router-dom";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import iconLocation from "../../assets/img/location.svg";
+import iconMessage from "../../assets/img/message.svg";
+import Dashed from "../dashed/Dashed";
 
-import iconLocation from '../../assets/img/location.svg'
-import iconMessage from '../../assets/img/message.svg'
-import Dashed from '../dashed/Dashed';
 
 const Navigation = () => {
     return (
         <div className={styles.navigation}>
-            
+
             <address className={styles.address}>
 
                 <div className={styles["address-item"]}>
@@ -18,7 +20,7 @@ const Navigation = () => {
                     </div>
                 </div>
 
-                <Dashed/>
+                <Dashed />
 
                 <div className={styles["address-item"]}>
                     <img src={iconMessage} alt="Иконка сообщение" />
@@ -32,13 +34,31 @@ const Navigation = () => {
 
             <nav>
                 <ul>
-                    <li><a href="#">О компании</a></li>
-                    <Dashed/>
-                    <li><a href="#">Доставка и оплата</a></li>
-                    <Dashed/>
-                    <li><a href="#">Возврат</a></li>
-                    <Dashed/>
-                    <li><a href="#">Контакты</a></li>
+                    <li>
+                        <a href="#">О компании</a>
+                    </li>
+                    <Dashed />
+                    <li>
+                        <a href="#">Доставка и оплата</a>
+                    </li>
+                    <Dashed />
+                    <li>
+                        <a href="#">Возврат</a>
+                    </li>
+                    <Dashed />
+                    <li>
+                        <a href="#">Контакты</a>
+                    </li>
+                    <Dashed />
+                    <Navbar bg="light" variant="light">
+                        <Container>
+                            <Nav className="me-auto">
+                                <Link to="/orders" className="nav-link">
+                                    Мои заказы
+                                </Link>
+                            </Nav>
+                        </Container>
+                    </Navbar>
                 </ul>
             </nav>
 

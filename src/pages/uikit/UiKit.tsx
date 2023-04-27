@@ -23,10 +23,6 @@ const Uikit = () => {
                     padding: { t: 13, r: 12, b: 12, l: 13 }
                 }}
             />
-
-            
-
-           
         </div>
     )
 }
