@@ -91,6 +91,20 @@ const Catalog = () => {
         dataCard.sort((a, b) => b.price - a.price);
     }
 
+    const countCardPerPage = 5;
+    const countPaginationButton = Math.ceil(dataCard.length / countCardPerPage);
+    const [page, setPage] = useState(1);
+
+    const changePage = (e) => {
+        e.stopPropagation();
+
+        document.querySelectorAll(e.target.tagName).forEach(el => {
+            el.classList.remove(styles.active);
+        });
+        e.target.classList.add(styles.active);
+
+        setPage(e.target.getAttribute('data-id'));
+    }
 
     return (
         <div className={styles.catalog}>
@@ -151,21 +165,30 @@ const Catalog = () => {
                         </div>
 
                         <div className={styles["content-list"]}>
-                            {dataCard.map(el => {
-                                return <Card
-                                    key={el.id}
-                                    id={el.id}
-                                    images={el.images}
-                                    name={el.name}
-                                    barcode={el.barcode}
-                                    manufacturer={el.manufacturer}
-                                    brand={el.brand}
-                                    categoryId={el.categoryId}
-                                    price={el.price}
-                                    cart={cart}
-                                    setCart={setCart}
-                                />
+                            {dataCard.map((el, i) => {
+                                if (i < page * countCardPerPage && i > page * countCardPerPage - countCardPerPage - 1) {
+                                    return <Card
+                                        key={el.id}
+                                        id={el.id}
+                                        images={el.images}
+                                        name={el.name}
+                                        barcode={el.barcode}
+                                        manufacturer={el.manufacturer}
+                                        brand={el.brand}
+                                        categoryId={el.categoryId}
+                                        price={el.price}
+                                        cart={cart}
+                                        setCart={setCart}
+                                    />
+                                }
                             })}
+                            <div className={styles.paginations}>
+                                {dataCard.map((el, i) => {
+                                    if (i < countPaginationButton) {
+                                        return <button key={i} data-id={i + 1} onClick={e => changePage(e)}>{i + 1}</button>
+                                    }
+                                })}
+                            </div>
                         </div>
                     </div>
                 </main>

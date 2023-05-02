@@ -9,6 +9,10 @@ import AdminHomePage from "./pages/admin/Admin";
 import "./App.css";
 import OrderPage from "./pages/order/Order";
 import Page404 from "./pages/404/404";
+import Contacts from "./pages/contacts/contacts";
+
+import ReturnProduct from "./pages/returnProduct/returnProduct";
+import AboutCompany from "./pages/aboutCompany/AboutCompany";
 
 function App() {
   return (
@@ -18,6 +22,9 @@ function App() {
         <Route path="/product" element={<Product />} />
         <Route path="/uikit" element={<Uikit />} />
         <Route path="/orders" element={<OrderPage />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/returnProduct" element={<ReturnProduct />} />
+        <Route path="/aboutCompany" element={<AboutCompany />} />
         {/* Админ панель роуты */}
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/home" element={<AdminHomePage />} />
